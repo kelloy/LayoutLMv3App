@@ -9,7 +9,7 @@ dataset = load_dataset("nielsr/cord-layoutlmv3")['train']
 
 def predict(image):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = LayoutLMv3ForTokenClassification.from_pretrained("C:/Users/keldr/Desktop/Workspace/Repo/12Sep2022/model/layoutlmv3/checkpoint-1500").to(device)
+    model = LayoutLMv3ForTokenClassification.from_pretrained("./model/layoutlmv3/checkpoint-1500").to(device) #add your model directory here
     processor = LayoutLMv3Processor.from_pretrained("microsoft/layoutlmv3-base")
     label_list,id2label,label2id, num_labels = utils.convert_l2n_n2l(dataset)
     width, height = image.size
